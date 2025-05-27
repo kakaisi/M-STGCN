@@ -3,6 +3,7 @@
 
 # Requirements
 Hardware resources used in this project.
+
 GPU NVIDIA GeForce RTX 4060ti and CUDA Version 12.4
 
 you'll need to install the following packages in order to run the codes.
