@@ -5,7 +5,7 @@
 ## Requirements
 
 ### Hardware
-- GPU: NVIDIA GeForce RTX 4060ti(or higher with CUDA support)  
+- Recommended GPU: NVIDIA GeForce RTX 4070ti or higher (CUDA support required)
 - CUDA Version: 12.3 
 
 ### Software
@@ -22,9 +22,12 @@
 - R==4.2.2
 - rpy2==3.5.10
 
-## Example
+## Usage Tutorial
 
 **1、Morphology feature extraction**
+- Preprocess H&E stained images and extract image patches
+- Use pre-trained models to extract feature vectors for each patch
+  Execution Command
 Run **image_process/image_get_patches.py** to preprocess the H&E image:
 
 python image_get_patches.py
