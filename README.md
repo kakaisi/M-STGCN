@@ -1,4 +1,4 @@
-# Spatially Contrastive Variational Autoencoder for Spatial Transcriptomics Analysis
+# M-STGCN: image-augmented graph convolutional framework for joint spatial domain identification and gene expression denoising 
 
 ## Overview
 
