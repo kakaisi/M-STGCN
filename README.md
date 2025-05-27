@@ -29,6 +29,7 @@
 - Use pre-trained models to extract feature vectors for each patch
   
 **Execution Command**
+
 Run **image_process/image_get_patches.py** to preprocess the H&E image:
 
 python image_get_patches.py
@@ -52,7 +53,7 @@ First,we run the **M-STGCN/_generate_data.py** to construct graphs
 
 python DLPFC_generate_data.py
 
-Then,input the **generate_data** to **M-STGCN/_test_data.py**
+Then,input the generate_data to **M-STGCN/_test_data.py**
 
 python DLPFC_test_data.py
 
