@@ -30,9 +30,13 @@
   
 **Execution Command**
 Run **image_process/image_get_patches.py** to preprocess the H&E image:
+
 python image_get_patches.py
+
 Then,run **image_process/image_get_embedding.py** to exact the feature of H&E image:
+
 python image_get_embedding.py
+
 
 **2、Data augmentation**
 Run **positions_enhancement/modality_get_enhancement.py** to augament the gene expression and image feature.
