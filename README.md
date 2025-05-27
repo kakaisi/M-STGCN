@@ -1,15 +1,5 @@
 # M-STGCN: image-augmented graph convolutional framework for joint spatial domain identification and gene expression denoising 
 
-## Overview
-
-**M-STGCN** (Multimodal Spatio-Temporal Graph Convolutional Network) is a novel unsupervised framework designed for **spatial domain identification** and **multimodal data integration** in spatially resolved transcriptomics (SRT). By synergistically combining gene expression, spatial coordinates, and histopathological images, M-STGCN enables:
-
-- **Context-aware representation learning** through graph attention mechanisms  
-- **Noise-robust denoising** via zero-inflated negative binomial (ZINB) decoding  
-- **Cross-modal alignment** of molecular and morphological features  
-
-
-
 ![image](https://github.com/user-attachments/assets/1b0d2b76-1944-4d61-9d3d-169c6da04f7e)
 
 
