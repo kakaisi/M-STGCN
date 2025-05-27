@@ -10,7 +10,7 @@
 - CUDA Version: 12.3 
 
 ### Software
-```python
+```
 Python==3.8.13
 numpy==1.20.0
 pandas==1.4.4
