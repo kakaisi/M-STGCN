@@ -39,11 +39,15 @@ python image_get_embedding.py
 
 
 **2、Data augmentation**
+
 Run **positions_enhancement/modality_get_enhancement.py** to augament the gene expression and image feature.
+
 python modility_get_enhancement.py
+
 The augmented data  will be saved in the  **positions_enhancement/output** 
 
 **3、integrate modality via M-STGCN**
+
 First,we run the **M-STGCN/_generate_data.py** to construct graphs
 
 python DLPFC_generate_data.py
