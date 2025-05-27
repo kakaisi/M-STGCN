@@ -27,20 +27,16 @@
 **1、Morphology feature extraction**
 - Preprocess H&E stained images and extract image patches
 - Use pre-trained models to extract feature vectors for each patch
-  Execution Command
+  
+**Execution Command**
 Run **image_process/image_get_patches.py** to preprocess the H&E image:
-
 python image_get_patches.py
-
 Then,run **image_process/image_get_embedding.py** to exact the feature of H&E image:
-
 python image_get_embedding.py
 
 **2、Data augmentation**
 Run **positions_enhancement/modality_get_enhancement.py** to augament the gene expression and image feature.
-
 python modility_get_enhancement.py
-
 The augmented data  will be saved in the  **positions_enhancement/output** 
 
 **3、integrate modality via M-STGCN**
