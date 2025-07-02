@@ -13,7 +13,6 @@
 - numpy
 - pandas
 - scipy
-- stlearn
 - pytorch
 - torch_geometric
 - torch_sparse
