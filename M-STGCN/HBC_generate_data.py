@@ -25,7 +25,7 @@ def load_ST_file(dataset, highly_genes, k, k1):
     path = "../Data/" + dataset + "/"
     labels_path = path + "metadata.tsv"
     kegg_path = f"../positions_enhancement/output/{dataset}_gene_positions.npy"
-    image_path = f"../positions_enhancement/output/{dataset}_image.npy"
+    image_path = f"../positions_enhancement/output/{dataset}_image_positions.npy"
 
     labels = pd.read_table(labels_path, sep='\t')
     labels = labels["ground_truth"].copy()
@@ -109,5 +109,5 @@ if __name__ == "__main__":
         config = Config(config_file)
         adata = load_ST_file(dataset, config.fdim, config.k, config.radius)
         print("saving")
-        adata.write(savepath + 'M-STGCN_no_enhanced.h5ad')
+        adata.write(savepath + 'M-STGCN.h5ad')
         print("done")
