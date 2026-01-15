@@ -5,7 +5,7 @@
 ## Requirements
 
 ### Hardware
-- Recommended GPU: NVIDIA GeForce RTX 4070ti or higher (CUDA support required)
+- Recommended GPU: NVIDIA GeForce RTX 4060ti or higher (CUDA support required)
 - CUDA Version: 12.3 
 
 ### Software
