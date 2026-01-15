@@ -134,7 +134,7 @@ for _ in range(1):
                 ari_res = metrics.adjusted_rand_score(labels, idx)
                 print(dataset, ' epoch: ', epoch, ' zinb_loss = {:.2f}'.format(zinb_loss),
                       ' reg_loss = {:.2f}'.format(reg_loss),
-                      ' total_loss = {:.2f}'.format(total_loss), ' ari_res = {:.2f}'.format(ari_res),' ari_max = {:.2f}'.format(ari_max))
+                      ' total_loss = {:.2f}'.format(total_loss))
                 kmeans = KMeans(n_clusters=config.class_num).fit(emb)
                 idx = kmeans.labels_
                 ari_res = metrics.adjusted_rand_score(labels, idx)
@@ -144,10 +144,6 @@ for _ in range(1):
                     idx_max = idx
                     mean_max = mean
                     emb_max = emb
-
-            print(dataset, ' ', ari_max)
-            tmp.append(ari_max)
-
             title = 'M-STGCN: ARI={:.2f}'.format(ari_max)
             adata.obs['idx'] = idx_max.astype(str)
             adata.obsm['emb'] = emb_max
@@ -171,8 +167,6 @@ for _ in range(1):
             adata.layers['X'] = adata.X
             adata.layers['mean'] = mean_max
             adata.write(savepath + 'M-STGCN.h5ad')
-            #
-            # print(tmp)
 
 
 
