@@ -25,7 +25,7 @@ kmeans = KMeans()  # 示例代码，正常调用 KMeans
 
 def load_data(dataset):
     print("load data:")
-    path = "../generate_data/" + dataset + "/M-STGCN_no_enhanced.h5ad"
+    path = "../generate_data/" + dataset + "/M-STGCN.h5ad"
     adata = sc.read_h5ad(path)
     features = torch.FloatTensor(adata.X)
     labels = adata.obs['ground_truth']
@@ -152,7 +152,7 @@ if __name__ == "__main__":
             ari_res = metrics.adjusted_rand_score(labels, idx)
             print(dataset, ' epoch: ', epoch, ' zinb_loss = {:.2f}'.format(zinb_loss),
                   ' reg_loss = {:.2f}'.format(reg_loss),
-                  ' total_loss = {:.2f}'.format(total_loss),' ari_res = {:.2f}'.format(ari_res),' ari_max = {:.2f}'.format(ari_max))
+                  ' total_loss = {:.2f}'.format(total_loss))
             kmeans = KMeans(n_clusters=config.class_num).fit(emb)
             idx = kmeans.labels_
             ari_res = metrics.adjusted_rand_score(labels, idx)
@@ -162,17 +162,14 @@ if __name__ == "__main__":
                 idx_max = idx
                 mean_max = mean
                 emb_max = emb
-
-        print(dataset,' ', ari_max)
-
-
+                
         title = 'M-STGCN: ARI={:.2f}'.format(ari_max)
         adata.obs['idx'] = idx_max.astype(str)
         adata.obsm['emb'] = emb_max
         adata.obsm['mean'] = mean_max
 
         sc.pl.spatial(adata, img_key="hires", color=['idx'],palette=custom_colors, title=title, show=False)
-        plt.savefig(savepath + 'M-STGCN_no_enhanced.pdf', bbox_inches='tight', dpi=600)
+        plt.savefig(savepath + 'M-STGCN.pdf', bbox_inches='tight', dpi=600)
         plt.show()
 
         sc.pp.neighbors(adata, use_rep='mean')
@@ -188,22 +185,4 @@ if __name__ == "__main__":
         # pd.DataFrame(idx_max).to_csv(savepath + 'M-STGCN_idx.csv')
         adata.layers['X'] = adata.X
         adata.layers['mean'] = mean_max
-        adata.write(savepath + 'M-STGCN_no_enhanced.h5ad')
-
-        # if config.gamma == 0:
-        #     title = 'Spatial_MGCN-w/o'
-        #     pd.DataFrame(emb_max).to_csv(savepath + 'Spatial_MGCN_no_emb.csv', header=None, index=None)
-        #     pd.DataFrame(idx_max).to_csv(savepath + 'Spatial_MGCN_no_idx.csv', header=None, index=None)
-        #     sc.pl.spatial(adata, img_key="hires", color=['idx'], title=title, show=False)
-        #     plt.savefig(savepath + 'Spatial_MGCN_no.jpg', bbox_inches='tight', dpi=600)
-        #     plt.show()
-        # else:
-        #     title = 'Spatial_MGCN'
-        #     pd.DataFrame(emb_max).to_csv(savepath + 'Spatial_MGCN_emb.csv', header=None, index=None)
-        #     pd.DataFrame(idx_max).to_csv(savepath + 'Spatial_MGCN_idx.csv', header=None, index=None)
-        #     sc.pl.spatial(adata, img_key="hires", color=['idx'], title=title, show=False)
-        #     adata.layers['X'] = adata.X
-        #     adata.layers['mean'] = mean_max
-        #     plt.savefig(savepath + 'Spatial_MGCN.jpg', bbox_inches='tight', dpi=600)
-        #     plt.show()
-        #     adata.write(savepath + 'M-STGCN.h5ad')
+        adata.write(savepath + 'M-STGCN.h5ad')
