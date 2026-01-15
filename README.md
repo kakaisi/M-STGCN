@@ -1,6 +1,7 @@
 # M-STGCN: image-augmented graph convolutional framework for joint spatial domain identification and gene expression denoising 
 
-![image](https://github.com/user-attachments/assets/d24f3fd1-139a-44d3-a240-620623ee9c39)
+[figure 1.tif](https://github.com/user-attachments/files/24633812/figure.1.tif)
+
 
 ## Requirements
 
