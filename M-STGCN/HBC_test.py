@@ -51,8 +51,6 @@ def train():
     emb, pi, disp, mean = model(features, sadj, fadj, padj)
     zinb_loss = ZINB(pi, theta=disp, ridge_lambda=0).loss(features, mean, mean=True)
     reg_loss = regularization_loss(emb, graph_nei, graph_neg)
-    # con_loss = consistency_loss(com1, com2)
-    # total_loss = config.alpha * zinb_loss + config.beta * con_loss + config.gamma * reg_loss
     total_loss = config.alpha * zinb_loss + config.gamma * reg_loss
     emb = pd.DataFrame(emb.cpu().detach().numpy()).fillna(0).values
     mean = pd.DataFrame(mean.cpu().detach().numpy()).fillna(0).values
