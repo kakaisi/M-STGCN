@@ -46,7 +46,7 @@ Example on **DLPFC**:
 1. Image Feature Extraction
 Run the following script to extract initial features from histology images
 ```bash
-python image_process/run_enhancement.py
+python image_process/main.py
 ```
 
 2. Position-Aware Feature Enhancement
